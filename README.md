@@ -1,2 +1,2 @@
-# curso-treinaweb-jsavan
-Curso Treinaweb - Js Avançado
+# Curso Treinaweb - Js Avançado
+Repositório de estudos
