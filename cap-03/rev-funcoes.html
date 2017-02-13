@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Revisando Funções</title>
+    <script type="text/javascript">
+        function declaration(){
+            console.log('i am function declaration');
+        }
+        declaration();
+
+        var expression = function(){
+            console.log('i am function expression');
+        }
+
+        expression();
+
+        var exampleCallback = function(callback){
+            callback();
+        }
+
+        exampleCallback(function(){
+            console.log('i am function callback');
+        });
+
+        (function(name){
+            var value = 10;
+            console.log('i am iffe function execute' + name);
+            console.log(value);
+
+            var newFunction = function(){
+             var value = 11;
+             console.log(value);   
+            }
+
+            newFunction();
+
+        })(' Treinaweb')
+        console.log(value);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
