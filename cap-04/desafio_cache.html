@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Cache</title>
+    <script type="text/javascript">
+        
+    var squareArea = function(base){
+        setTimeout(function(){
+            console.log(base * base);
+        },5000);
+    }
+
+
+     // Criando cache na funcao
+
+    // var foo = function(cacheKey){
+    //     if(!foo.cache[cacheKey]){
+    //         //Operação complexa
+    //         //result é um objeto criado pela operaçãoo complexa
+    //         foo.cache[cacheKey] = result;
+    //     }
+    //         return foo.cache[cacheKey];
+    // }
+
+        // foo.cache = {};
+
+    // Cache com um atributo
+    // var squareAreaCache = function(base){
+    //     if(!squareAreaCache.cache[base]){ // Se o valor nao estiver no cache realiza o if
+    //         setTimeout(function(){
+    //             var area = base * base;
+    //             squareAreaCache.cache[base] = area;
+    //             console.log(area);
+    //         },5000);
+    //     }else{
+    //         console.log(squareAreaCache.cache[base]);
+    //     }
+    // };
+    // squareAreaCache.cache = {}
+    
+    // // Cache com dois atributos
+    // var squareAreaCache = function(base, height){
+    //     var key = base+"x"+height;
+    //     console.log(key);
+    //     if(!squareAreaCache.cache[key]){ // Se o valor nao estiver no cache realiza o if
+    //         setTimeout(function(){
+    //             var area = base * height;
+    //             squareAreaCache.cache[key] = area;
+    //             console.log(area);
+    //         },5000);
+    //     }else{
+    //         console.log(squareAreaCache.cache[key]);
+    //     }
+    // };
+    // squareAreaCache.cache = {}
+    // Cache com objeto em atributos
+    var squareAreaCache = function(square){
+        var key = JSON.stringify(square); // serializando para obj
+        console.log(key);
+        if(!squareAreaCache.cache[key]){ // Se o valor nao estiver no cache realiza o if
+            setTimeout(function(){
+                var area = square.base * square.height;
+                squareAreaCache.cache[key] = area;
+                console.log(area);
+            },5000);
+        }else{
+            console.log(squareAreaCache.cache[key]);
+        }
+    };
+    squareAreaCache.cache = {}
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
