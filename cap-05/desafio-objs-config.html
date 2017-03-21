@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Objeto de config</title>
+    <script type="text/javascript">
+        var createUser = function(user, sucesso, erro){
+            var valores = user;
+            for(prop in valores){
+                console.log(valores[prop]);
+                sucesso(user);
+                erro(user);
+            }
+        };
+
+        createUser({nome: 'Jhonathan', idade: 22, senha: 123, email: 'email@email.com'}, function(user){
+            console.log('sucesso')
+            console.log(user);
+        }, function(user){
+            console.log('erro');
+        }); //chamada de função modificada
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
