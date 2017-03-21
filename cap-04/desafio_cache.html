@@ -14,7 +14,7 @@
 
      // Criando cache na funcao
 
-    // var foo = function(cacheKey){
+    // var foo = function(cacheKey){    
     //     if(!foo.cache[cacheKey]){
     //         //Operação complexa
     //         //result é um objeto criado pela operaçãoo complexa
@@ -23,7 +23,7 @@
     //         return foo.cache[cacheKey];
     // }
 
-        // foo.cache = {};
+    //     foo.cache = {};
 
     // Cache com um atributo
     // var squareAreaCache = function(base){
@@ -59,6 +59,7 @@
         var key = JSON.stringify(square); // serializando para obj
         console.log(key);
         if(!squareAreaCache.cache[key]){ // Se o valor nao estiver no cache realiza o if
+        console.log(!squareAreaCache.cache[key]);
             setTimeout(function(){
                 var area = square.base * square.height;
                 squareAreaCache.cache[key] = area;
@@ -69,6 +70,8 @@
         }
     };
     squareAreaCache.cache = {}
+
+    
 
     </script>
 </head>
