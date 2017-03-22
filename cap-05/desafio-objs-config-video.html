@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Objeto de config</title>
+    <script type="text/javascript">
+        // Dessa forma nao funciona por que ao retirar um argumento como name
+        // voce atualiza a ordem que no caso a funcao error passa a ser a funcao 
+        // de sucesso 
+        // var createUser = function(name, age, password, email, success, error){
+        //     if(name && age && password && email){
+        //         success({name: name, age:age});
+        //     } else {
+        //         error({message: 'Erro ao cadastrar novo usuario'});
+        //     }
+        // };
+
+        // createUser('21','1234','bruno@email', function(user){
+        //     console.log(user);
+        // },function(error){
+        //   console.log(error.message);  
+        // })
+
+        // Forma correta passando obj de configuracao
+
+        var createUser = function(params){
+            if(params.name && params.age && params.password && params.email){
+                params.success({name: params.name, age: params.age});
+            } else {
+                params.error({message: 'Erro ao cadastrar novo usuario'});
+            }
+        };
+
+        createUser({
+            name: 'Bruno',
+            age: '21',
+            password: '123456',
+            email: 'email@email.com',
+            success: function(user){
+                console.log(user);
+            },
+            error: function(error){
+                console.log(error.message);
+            }
+        });
+
+        var createCar = function(car){
+            if(car.model){
+                window.localStorage.setItem('car', JSON.stringify(car));
+                 typeof car.sucess == "function" ? car.sucess('Salvo com sucesso') : '';
+            } else {
+                typeof car.error == "function" ? car.error('Salvo com sucesso') : '';
+            }
+        }
+
+        createCar({
+            model:'Punto', 
+            color: 'Red', 
+            sucess: function(msg){
+                console.log(msg);
+            },
+            error: function(msg){
+                console.log(msg);
+            }
+        });
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

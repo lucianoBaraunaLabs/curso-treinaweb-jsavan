@@ -7,19 +7,27 @@
         var createUser = function(user, sucesso, erro){
             var valores = user;
             for(prop in valores){
-                console.log(valores[prop]);
-                sucesso(user);
-                erro(user);
+                // console.log(valores[prop]);
+                if(valores.nome == undefined || valores.idade == undefined) {
+                    erro(user, msg);
+                    break;
+                } else {
+                    sucesso(user);
+                }
             }
         };
 
-        createUser({nome: 'Jhonathan', idade: 22, senha: 123, email: 'email@email.com'}, function(user){
-            console.log('sucesso')
-            console.log(user);
+        createUser({nome: 'Carlos', idade: 22, senha: 123, email: 'email@email.com'}, function(user){
+            var dadosCadastro = user;
+            console.log('Sucesso dados corretos');
+            console.log('Seu nome é: '+ dadosCadastro.nome);
+            console.log('Seu idade é: '+ dadosCadastro.idade);
+
         }, function(user){
             console.log('erro');
         }); //chamada de função modificada
 
+        
     </script>
 </head>
 <body>
