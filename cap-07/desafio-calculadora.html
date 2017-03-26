@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio calculadora</title>
+    <script>
+        // var sum = function(x,y){
+        //     if(x && y){
+        //         var teste = x && y;
+        //         console.log(teste);
+        //         return x + y;
+        //     } else if (x && !y){
+        //         var teste = x && !y;
+        //         console.log(teste);
+        //         return function(y){
+        //             return x + y;
+        //         }
+        //     }
+        // }
+
+        // var soma = sum(1);
+
+        // console.log("Estou somando: " + soma(10));
+
+        var calculadora = function(tipo, x, y){
+            if(tipo === "+"){
+
+                
+                console.log('isso e uma soma');
+                if(x && y){
+                    return x + y;
+                }else if(x && !y){
+                    return function(y){
+                        return x + y;
+                    }            
+                }
+            } else if (tipo === "-"){
+                console.log('isso e diminuir');
+                if(x && y){
+                    return x - y;
+                }else if(x && !y){
+                    return function(y){
+                        return x - y;
+                    }            
+                }
+            } else if (tipo === 'x') {
+                console.log('isso e multiplicacao');
+                 if(x && y){
+                    return x * y;
+                }else if(x && !y){
+                    return function(y){
+                        return x * y;
+                    }            
+                }
+            } else if (tipo === '/'){
+                console.log('isso e divisao');
+                 if(x && y){
+                    return x / y;
+                }else if(x && !y){
+                    return function(y){
+                        return x / y;
+                    }            
+                }
+            }
+        }
+
+        var calculo = calculadora('x',10);
+
+        console.log(calculo(5));
+        
+        
+
+        
+
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
