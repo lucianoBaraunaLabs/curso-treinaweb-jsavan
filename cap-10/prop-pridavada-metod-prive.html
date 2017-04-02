@@ -15,18 +15,68 @@
   // console.log(person.name);
   // console.log(person.getName());
 
-  // Metodo privado
-  var Person = function(){
-    var name = 'Ary';
-    this.getName = function(){
-      return name;
+  // Metodo privilegiado
+
+  // criando um contrutor privilegiado
+  // var Person = function(){
+  //   var name = 'Ary';
+  //   this.getName = function(){
+  //     return name;
+  //   }
+  // };
+
+  // var person = new Person();
+
+  // console.log(person.name);
+  // console.log(person.getName());
+
+  // privilegiado com obj literal
+
+  // var person = (function(){
+  //   var name = 'Ary';
+  //   return {
+  //     getName: function(){
+  //       return name;
+  //     }
+  //   }
+  // })();
+
+  // console.log(person.name);
+  // console.log(person.getName());
+
+  // Prestar antencao para onde o ponteiro estar
+  // nesse caso a mesma variavel e declarada dentro
+  // e o valor alterado do lado de fora e sempre que trabalhamos
+  // com obj nunca devemos devolvelos justamente por conta desse erro
+  // var person = (function(){
+  //   var features = {eye: 'brown'};
+  //   return {
+  //     getFeatures: function(){
+  //       return features;
+  //     }
+  //   }
+  // })();
+
+  // var features = person.getFeatures();
+  // features.eye = 'blue';
+  // console.log(features.eye);
+
+  // Solucaro criar metodos especificos para valores primitivos pois eles
+  // nao sofrem de problema com ponteiros duplicados.
+
+  var person = (function(){
+    var features = {eye: 'brown'};
+    return {
+      getFeatures: function(){
+        return features.eye;
+      }
     }
-  };
+  })();
 
-  var person = new Person();
+  var features = person.getFeatures();
+  features.eye = 'blue';
+  console.log(features);
 
-  console.log(person.name);
-  console.log(person.getName());
 
   </script>
 </body>
