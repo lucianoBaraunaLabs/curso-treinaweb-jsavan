@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Propriedade privada e Metódo privilegiado</title>
+</head>
+<body>
+  
+  <script type="text/javascript">
+  // Acessando os valores normalmente
+  // var person = {
+  //   name: 'Ary',
+  //   getName: function(){
+  //     return this.name;
+  //   }
+  // }
+  // console.log(person.name);
+  // console.log(person.getName());
+
+  // Metodo privado
+  var Person = function(){
+    var name = 'Ary';
+    this.getName = function(){
+      return name;
+    }
+  };
+
+  var person = new Person();
+
+  console.log(person.name);
+  console.log(person.getName());
+
+  </script>
+</body>
+</html>
