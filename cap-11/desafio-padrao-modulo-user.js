@@ -13,11 +13,11 @@ MYAPP.models.User = function(params){
     this.gender = params.gender;
 };
 
-MYAPP.views = (function(User){
+MYAPP.views = (function(models){
     
-    console.log(User);
+    console.log(models.User);
     
-    var user = new User({
+    var user = new models.User({
         name: 'Jose',
         age: 18,
         address: 'Rua 2',
@@ -35,7 +35,7 @@ MYAPP.views = (function(User){
         getDescription: getDescription
     }
 
-})(MYAPP.models.User);
+})(MYAPP.models);
 
 MYAPP.controller = (function(view, User){
     var user = view.user;
