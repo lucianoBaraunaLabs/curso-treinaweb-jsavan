@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>Padrao SandBox Video</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    var Sandbox = function(){
+        var argumentsArray = Array.prototype.slice.call(arguments); // transformando o arguments em array
+        var callback = argumentsArray.pop(); // ultimo argumento do array criado que no caso e a funcao
+        var orderedModules = argumentsArray.pop(); // modulos
+
+        if(this instanceof Sandbox){
+           new Sandbox(orderedModules, callback);
+        }
+
+        var modules = {};
+        for(index in orderedModules){
+            modules[orderedModules[index]] = Sandbox.modules[orderedModules[index]];
+        }
+
+        callback(modules);
+    };
+
+    Sandbox.modules = {};    
+
+    Sandbox.modules.validator = (function(){
+        var isValidString = function(value){
+            return typeof value === "string"
+        }
+
+        return {
+            isValidString: isValidString
+        }
+
+    })();
+   
+
+    Sandbox.modules.User = function(name){
+        this.name = name;
+    };
+
+    Sandbox(["validator", "User"],function(modules){
+        var validator = modules.validator;
+        var User = modules.User;
+        var name = "Jose";
+        if(validator.isValidString(name)){
+            var user = new User(name);
+        }
+    });
+   
+    console.log(Sandbox.modules)
+
+   
+
+        
+    </script>
+</body>
+</html>

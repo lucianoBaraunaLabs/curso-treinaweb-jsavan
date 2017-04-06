@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title>Desafio Padrao SandBox Video</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    var Sandbox = function(){
+        var argumentsArray = Array.prototype.slice.call(arguments);
+        var callback = argumentsArray.pop();
+        var orderedModules = argumentsArray.pop();
+
+        if(this instanceof Sandbox){
+           new Sandbox(orderedModules, callback);
+        }
+
+        var modules = [];
+        for(index in orderedModules){
+            modules.push(Sandbox.modules[orderedModules[index]]); // separando os nomes em um array
+        }
+
+        callback.apply('undefined', modules); // colocando nomes separados e executando as funcoes
+    };
+
+    Sandbox.modules = {};
+
+    Sandbox.modules.validator = (function(){
+        var isValidString = function(value){
+            return typeof value === "string";
+        }
+        
+        var isValidNumber = function(value){
+            return typeof value === "number";
+        }
+        
+        var isValidGender = function(gender){
+            return gender === "male" || gender === "female";
+        }
+
+        return{
+            isValidString: isValidString,
+            isValidNumber: isValidNumber,
+            isValidGender: isValidGender
+        }
+
+    })();
+   
+
+    Sandbox.modules.User = function(name, age, email, gender){
+        this.name = name;
+        this.age = age,
+        this.email = email,
+        this.gender = gender
+    };
+
+    Sandbox(["User", "validator"],function(User, validator){
+       var name = "Lucas";
+       var age = 20;
+       var email = "lucas@email";
+       var gender = "male";
+
+       if(validator.isValidString(name) && validator.isValidString(email) &&             validator.isValidNumber(age) && validator.isValidGender(gender)){
+           var user = new User(name,age,email,gender);
+           console.log(user);
+        }
+       
+    });
+   
+
+        
+    </script>
+</body>
+</html>
