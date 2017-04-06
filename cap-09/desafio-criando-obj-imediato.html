@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h4>Desafio criando Objeto Imediato</h4>
+  <script type="text/javascript">
+
+  ({
+      print: function(idPrint, file){
+          if(idPrint && file){
+            console.log('Seu arquivo será impresso em: '+ idPrint);
+            setTimeout(function(){
+                console.log('Arquivo ' + file + ' impresso em: ' + idPrint);
+            },100);
+          } else if(idPrint && !file){
+              return console.log('Impressora aguardando arquivo...');
+          }
+      },
+      init: function(){
+          this.print('Epson');
+      }
+
+  }.init());
+
+  </script>
+</body>
+</html>

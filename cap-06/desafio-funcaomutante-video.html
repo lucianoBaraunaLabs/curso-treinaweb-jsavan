@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desafio funcao mutante</title>
+    <script>
+        var mutant = function(){
+           var name = 'mutant1';
+           console.log(name);
+            mutant = function(){
+                name = 'mutant2';
+                console.log(name);
+            };
+        };
+
+        mutant();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

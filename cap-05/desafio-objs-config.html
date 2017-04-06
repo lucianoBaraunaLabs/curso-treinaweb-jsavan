@@ -12,14 +12,23 @@
                     sucesso(user);
                 } else {
                     erro(user);
+                if(valores.nome == undefined || valores.idade == undefined) {
+                    erro(user, msg);
+                    break;
+                } else {
+                    sucesso(user);
                 }
             }
         };
-
         createUser({nome: 'ART', idade: 22, senha: 123, email: 'email@email.com'}, function(user){
             // console.log('sucesso')
             // console.log(user);
             console.log('NULL')
+        createUser({nome: 'Carlos', idade: 22, senha: 123, email: 'email@email.com'}, function(user){
+            var dadosCadastro = user;
+            console.log('Sucesso dados corretos');
+            console.log('Seu nome é: '+ dadosCadastro.nome);
+            console.log('Seu idade é: '+ dadosCadastro.idade);
         }, function(user){
             console.log('erro');
         }); //chamada de função modificada
