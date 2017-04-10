@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>Herancas</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // HERANCA SIMPLES E NAO PERMITE HERANCA MULTIPLA
+
+    // var Parent = function(value){
+        
+    // }
+
+    // Parent.prototype.say = function(value){
+    //     console.log(value);
+    // }    
+
+    // var Child = function(){        
+        
+    // }
+
+    // Child.prototype = new Parent();
+    
+
+    // var child = new Child();
+
+    // child.say('Hello');
+
+
+    
+    // Herancas multiplas
+
+    var Father = function(){
+        this.hair = 'brown';
+    }
+
+    Father.say = function(value){
+        console.log(value)
+    }
+
+    var Mother = function(){
+        this.eye = 'black';
+    }
+
+    var Child = function(){
+        Father.call(this);
+        Mother.call(this);
+    }
+
+    Child.prototype = new Father();
+
+    var child = new Child();
+
+    console.log(child.hair);
+    console.log(child.eye);
+    child.say('Hello');
+
+        
+    </script>
+</body>
+</html>

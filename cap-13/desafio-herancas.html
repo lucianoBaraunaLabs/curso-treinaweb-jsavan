@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Desafio herancas</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var MYAPP = {
+        models:{},
+        views: {}
+    }
+
+    MYAPP.models.Father = function(eyecolor){
+        this.eye = eyecolor;
+        // this.eye = eyecolor;
+    }
+
+    MYAPP.models.Mother = function(haircolor){
+        this.hair = haircolor;
+        // this.hair = haircolor;
+    }
+
+    MYAPP.models.Child = function(name){
+        this.name = name;
+    };
+
+    MYAPP.views.Childrens = (function(Father, Mother){
+        var Child = function(name, eyecolor, haircolor){
+            this.name = name;
+            Father.call(this, eyecolor);
+            Mother.call(this, haircolor);
+        }
+
+        console.log(new Child('Maria', 'Verder', 'Loiro'));
+        console.log(new Child('Walter', 'Castanhos', 'Rosa'));
+        console.log(new Child('Paulo', 'Blue', 'Red'));
+
+    })(MYAPP.models.Father, MYAPP.models.Mother)
+
+
+
+
+   
+    
+
+    
+
+        
+    </script>
+</body>
+</html>

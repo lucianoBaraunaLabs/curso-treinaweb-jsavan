@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>Desafio herancas</title>
+</head>
+<body>
+    <script type="text/javascript">
+     var Sandbox = function(){
+        var argumentsArray = Array.prototype.slice.call(arguments);
+        var callback = argumentsArray.pop();
+        var orderedModules = argumentsArray.pop();
+
+        if(this instanceof Sandbox){
+           new Sandbox(orderedModules, callback);
+        }
+
+        var modules = [];
+        for(index in orderedModules){
+            modules.push(Sandbox.modules[orderedModules[index]]);
+        }
+
+        callback.apply('undefined', modules);
+    };
+    
+    Sandbox.modules = {};
+    
+    Sandbox.modules.colors = [
+        'Blue',
+        'Brown',
+        'Yellow',
+        'White'
+    ];
+
+    Sandbox(["colors"], function(colors){
+        Sandbox.modules.Father = function(){
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            this.eye = color;
+        }
+        Sandbox.modules.Mother = function(){
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            this.hair = color;
+        }
+    })
+
+    Sandbox(['Mother','Father'], function(Mother, Father){
+        Sandbox.modules.Child = function(name){
+            this.name = name,
+            Mother.call(this);
+            Father.call(this);
+        }
+    });
+
+    Sandbox(['Child'],function(Child){
+        console.log(new Child('Maria'));
+        console.log(new Child('Joao'));
+        console.log(new Child('Carla'));
+    });
+
+    
+
+    
+
+        
+    </script>
+</body>
+</html>
