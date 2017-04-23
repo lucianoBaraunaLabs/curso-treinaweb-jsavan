@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>Desafio Interator</title>
+</head>
+<body>
+    <script type="text/javascript">
+    
+
+    function PrizeDraw(){};
+
+    PrizeDraw.prototype.sorty = function(litsPlayers){
+        var players =(function(){
+            var list = litsPlayers;
+
+            var index = 0;
+
+            var next = function(){
+                if(!this.hasNext()){
+                    return null;
+                }
+                var name = list[index];
+                index += 2;
+                return name;
+            }
+
+            var hasNext = function(){
+                return index < list.length;
+            }
+
+        
+            return{
+                next:next,
+                hasNext:hasNext
+            }
+        })();
+    }
+    
+    PrizeDraw.factory = function(type){
+        var prize
+        if(typeof PrizeDraw[type] !== "function"){
+            throw {
+                message: type.concat(' nao existe.')
+            }
+        }
+        // if()
+        prize = new PrizeDraw[type]();
+
+        return prize;
+    }
+
+
+    PrizeDraw.Casa = function(){
+       this.award = ['geladeira', 'cama']
+    }
+
+    PrizeDraw.Viagem = function(){
+        this.award = ['cancun', 'paris']
+    }
+
+
+
+        
+    </script>
+</body>
+</html>

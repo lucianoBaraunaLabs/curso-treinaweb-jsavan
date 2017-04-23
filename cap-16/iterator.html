@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Iterator</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    var names = (function(){
+        var list = [
+            'Matheus',
+            'Felipe',
+            'Jose',
+            'Kennedy',
+            'Andre',
+            'Ailton'
+        ];
+
+        console.log(list);
+
+        var index = 0;
+
+        var next = function(){
+            if(!this.hasNext()){
+                return null;
+            }
+            var name = list[index];
+            index += 2;
+            return name;
+        }
+
+        var hasNext = function(){
+            return index < list.length;
+        }
+
+        
+        return{
+            next:next,
+            hasNext:hasNext
+        }
+    })();
+
+    console.log(names.next());
+    console.log(names.hasNext());
+    console.log(names.next());
+    console.log(names.hasNext());
+    console.log(names.next());
+    console.log(names.hasNext());
+
+        
+    </script>
+</body>
+</html>
