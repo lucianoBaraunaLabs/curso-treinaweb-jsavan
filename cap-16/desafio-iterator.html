@@ -10,7 +10,14 @@
 
     PrizeDraw.prototype.sorty = function(litsPlayers){
         var players =(function(){
-            var list = litsPlayers;
+            var list = [
+                'Matheus',
+                'Felipe',
+                'Jose',
+                'Kennedy',
+                'Andre',
+                'Ailton'
+            ];
 
             var index = 0;
 
@@ -26,13 +33,9 @@
             var hasNext = function(){
                 return index < list.length;
             }
-
-        
-            return{
-                next:next,
-                hasNext:hasNext
-            }
         })();
+
+        console.log(this.award);
     }
     
     PrizeDraw.factory = function(type){
@@ -42,7 +45,10 @@
                 message: type.concat(' nao existe.')
             }
         }
-        // if()
+        
+        if(typeof PrizeDraw[type].prototype.sorty !== "function"){
+            PrizeDraw[type].prototype = new PrizeDraw();
+        }
         prize = new PrizeDraw[type]();
 
         return prize;
@@ -50,11 +56,15 @@
 
 
     PrizeDraw.Casa = function(){
-       this.award = ['geladeira', 'cama']
+       var award = ['geladeira', 'cama']
+
+       return award
     }
 
     PrizeDraw.Viagem = function(){
-        this.award = ['cancun', 'paris']
+        var award = ['cancun', 'paris']
+
+        return award
     }
 
 
