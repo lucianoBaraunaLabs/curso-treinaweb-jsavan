@@ -1,0 +1,108 @@
+<html>
+<head>
+  <title>Desafio Jogadores</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+function PlayerManager(){};
+
+PlayerManager.prototype.getDescription= function(){
+ for (var skill in this.skills) {
+    console.log(skill.concat(' dano:', this.skills[skill].damage,
+                             ' defesa:', this.skills[skill].defense,
+                             ' custo:', this.skills[skill].cost));
+ }   
+}
+
+PlayerManager.factory = function(type){
+  var player
+  if(typeof PlayerManager[type] !== 'function'){
+      throw {
+          message: type.concat(' nao existe')
+      }
+  }
+
+  if(typeof PlayerManager[type].prototype.getDescription !== "function"){
+      PlayerManager[type].prototype = new PlayerManager();
+  }
+
+  player = new PlayerManager[type]();
+
+  return player;
+}
+
+PlayerManager.Archer = function(){
+    this.skills = {
+        "arrow shot": {
+            damage: 10,
+            cost: 0,
+            defense: 0
+        },
+        // "arrow shot": {
+        //     "damage": 10,
+        //     "cost": 0,
+        //     "defense": 0
+        // },
+        "double arrow shot": {
+            "damage": 20,
+            "cost": 0,
+            "defense": 0
+
+        },
+        "poisoned arrow shot": {
+            "damage": 30,
+            "cost": 0,
+            "defense": 0
+        }
+    }
+}
+
+PlayerManager.Wizard = function(){
+    this.skills = {
+        "fire ball": {
+            "damage": 30,
+            "cost": 10,
+            "defense": 0
+        },
+        "fire wall": {
+            "damage": 10,
+            "cost": 20,
+            "defense": 20
+
+        },
+        "invisibility": {
+            "damage": 0,
+            "cost": 30,
+            "defense": 100
+        }
+    }
+}
+
+PlayerManager.Knight = function(){
+    this.skills = {
+        "simple attack": {
+            "damage": 20,
+            "cost": 0,
+            "defense": 0
+        },
+        "quick attack": {
+            "damage": 25,
+            "cost": 0,
+            "defense": 100
+
+        },
+        "double attack": {
+            "damage": 40,
+            "cost": 0,
+            "defense": 0
+        }
+    }
+}
+
+
+
+        
+    </script>
+</body>
+</html>
