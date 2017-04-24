@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>Desafio Interator</title>
+</head>
+<body>
+    <!--<script type="text/javascript" src="iterator-fac-desafio.js"></script>-->
+    <!--<script type="text/javascript" src="iterator-desafio.js"></script>-->
+    <script type="text/javascript" src="itemFactory-video.js"></script>
+    <script>
+        var Iterator = function(list){
+            this.index = 0;
+            this.list = list;
+        }
+
+        Iterator.prototype = {
+            next: function(){
+                return this.list[this.index++];
+            },
+            hasNext: function(){
+                return this.index <= this.list.length;
+            },
+            reset: function(){
+                this.index = 0;
+            },
+            first: function(){
+                this.reset();
+                return this.next();
+            },
+            each: function(callback){
+                for(var item = this.first(); this.hasNext(); item = this.next()){
+                    callback(item);
+                }
+            }
+
+        }
+        
+        // Teste iterator
+        // var i = new Iterator(['jose', 'augusto', 'carlos']);
+        // console.log(i);
+        // i.each(function(name){
+        //     console.log(name);
+        // })
+
+        var Player = function(name){
+            this.name = name;
+            this.level = 0;
+            this.items = [ItemMaker.factory('Bow')];
+            this.inventory = new Iterator(this.items);
+        }
+
+        var players = new Ite
+
+
+    </script>
+    
+</body>
+</html>
