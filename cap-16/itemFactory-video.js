@@ -30,7 +30,6 @@ ItemMaker.LongSword = function(){
     this.description = 'LongSword description';
 }
 
-
 ItemMaker.Bow = function(){
     this.name = 'Bow';
     this.price= 5000;

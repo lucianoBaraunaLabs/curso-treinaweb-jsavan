@@ -48,7 +48,19 @@
             this.inventory = new Iterator(this.items);
         }
 
-        var players = new Ite
+        var players = new Iterator([new Player('Player1'), new Player('Player2'), new Player('Player3')]);
+
+        players.each(function(){
+            var item = ItemMaker.factory('LongSword');
+            players.items.push(item);
+            alert(player.name + " ganhou uma " + item.name)
+        });
+
+        var player1 = players.first();
+
+        player1.invetory.each(function(item){
+            alert(item.name+" valor:"+item.price);
+        })
 
 
     </script>
