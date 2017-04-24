@@ -5,15 +5,9 @@
 <body>
     <script type="text/javascript">
     var names = (function(){
-        var list = [
-            'Matheus',
-            'Felipe',
-            'Jose',
-            'Kennedy',
-            'Andre',
-            'Ailton'
-        ];
+        
         console.log(list);
+
         var index = 0;
         var next = function(){
             if(!this.hasNext()){
@@ -26,7 +20,9 @@
         var hasNext = function(){
             return index < list.length;
         }
-        
+        var hasNext = function(){
+            return index < list.length;
+        }
         return{
             next:next,
             hasNext:hasNext
