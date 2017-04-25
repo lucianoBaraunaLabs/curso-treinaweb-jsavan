@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplo ajax video aula - cap17</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('#cep').on('blur', function(event){
+            // console.log($(this.target))
+            var cep = $(event.target).val();
+            $.get('http://api.postmon.com.br/v1/cep/'+cep+'?format=json',function(data){
+                console.log(data);
+                $('#cidade').val(data.cidade);
+                $('#bairro').val(data.bairro);
+                $('#logradouro').val(data.logradouro);
+                $('#estado').val(data.estado);
+            });
+        })
+      });
+    </script>
+</head>
+<body>
+    <section>
+        <form action="">
+            <input id="cep" type="text" placeholder="CEP">
+            <input id="cidade" type="text" placeholder="Cidade">
+            <input id="bairro" type="text" placeholder="Bairro">
+            <input id="logradouro" type="text" placeholder="Logradouro">
+            <input id="estado" type="text" placeholder="Estado">
+        </form>
+    </section>
+</body>
+</html>
