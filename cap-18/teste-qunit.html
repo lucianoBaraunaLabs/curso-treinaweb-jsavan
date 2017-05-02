@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Teste Qunit</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+  <script src="testes.js"></script>
+  <script>
+      QUnit.test('Teste Exemplo', function(assert){
+        assert.equal(1, "1", "1 e  '1' sao iguais.");// Checa se sao iguais
+        assert.notEqual( 3, 2, "3 e 2 não são iguais" ); // Checa se sao diferentes
+      });
+
+      QUnit.test( "Teste Equal", function( assert ) {
+        var foo = {name:'TreinaWeb'};
+        var bar = {name:'TreinaWeb'};
+
+        var casa = {name:'Terreno'};
+        var apto = {name:'predio'};
+        assert.deepEqual( foo, bar, "Objetos iguais" ); // Esse metodo consegue comparar as propriedades do obj
+        assert.notDeepEqual( casa, apto, "Objetos diferentes" );
+      });
+
+      QUnit.test( "Teste Expect", function( assert ) {
+        assert.expect(2); // Define quantas validacoes devem ser feitas
+        var foo = {name:'TreinaWeb'};
+        var bar = {name:'JavaScript'};
+        // Realizando dois testes
+        assert.notDeepEqual( foo, bar, "Objetos diferentes" ); //Primeira Validacao
+        assert.notEqual(1, 2,'1 e 2 são diferentes'); // Segunda Validacao
+      });
+
+      
+
+
+  </script>
+</body>
