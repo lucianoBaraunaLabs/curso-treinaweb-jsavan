@@ -5,7 +5,7 @@ var sum = function(value1, value2){
 }
 
 var mult = function(value1, value2){
-    return value1 * value2;
+    return value1 * value2 + 1;
 }
 
 QUnit.test('Teste da função sum', function(assert){
@@ -14,6 +14,6 @@ QUnit.test('Teste da função sum', function(assert){
     assert.notEqual(sum(2,2), 5, "sun(2,2) != 5");
 });
 
-QUnit.test('Teste da função mult', function(assert){
-
+QUnit.test('Teste da função multiplicação', function(assert){
+    assert.equal(mult(2,2), 4, "mult(2,2) = 4")
 });
