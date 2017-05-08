@@ -1,5 +1,6 @@
 var MYAPP = {
-  utils:{}
+  utils:{},
+  formater:{}
 }
 
 MYAPP.utils.validator = (function(){
@@ -25,6 +26,27 @@ MYAPP.utils.validator = (function(){
   }
 })();
 
+MYAPP.utils.formater = (function(){
+
+  var date = function(date){
+    if(date){
+      if(typeof date === 'string'){
+        if(date.length === 10){
+          var dateArray = date.split('-');
+          return dateArray.join('/');
+        }
+        throw new Error('invalid formate string');
+      }
+      throw new Error('parameter is not a valid value');
+    }else{
+      throw new Error('This function needs one parameter');
+    }
+  }
+
+  return {
+    date:date
+  }
+})();
 
 var validator = MYAPP.utils.validator,
     formater = MYAPP.utils.formater;
@@ -44,15 +66,6 @@ QUnit.test('Telefone valido', function(assert){
   assert.notOk(validator.isValidPhone(995443243), 'Telefone invalido');
   assert.notOk(validator.isValidPhone(), 'Sem valor');
 });
-
-
-// QUnit.test('Data valida', function(assert){
-//   assert.expect(4);
-//   assert.ok(validator.isValidDate('22/01/1994'), 'Data valida 22/01/1994');
-//   assert.notOk(validator.isValidDate('22-01-1994'), 'Data invalida 22-01-1994');
-//   assert.notOk(validator.isValidDate(22011994), 'Valor invalido');
-//   assert.notOk(validator.isValidDate(), 'Sem valor');
-// });
 
 QUnit.module('MYAPP.utils.formater');
 

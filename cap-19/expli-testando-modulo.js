@@ -19,7 +19,7 @@ MYAPP.utils.validator = (function(){
   }
 
   return {
-  isValidEmail: isValidEmail,
+    isValidEmail: isValidEmail,
     isValidPhone: isValidPhone,
     isValidDate: isValidDate
   }
