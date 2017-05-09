@@ -1,0 +1,19 @@
+body {
+	padding-top: 70px;
+}
+
+.text-gray{
+	color:#c3c3c3;
+}
+
+.text-red{
+	color:#e74c3c;
+}
+
+.cursor-pointer{
+	cursor: pointer;
+}
+
+.delete:hover{
+	background-color: #e74c3c;
+}
