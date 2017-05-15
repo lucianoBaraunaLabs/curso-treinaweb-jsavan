@@ -14,7 +14,34 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
 </head>
 <body ng-controller="MoneyController">
-	{{appName}}
+	
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand">SaidadoVermelho</a>
+				<p class="navbar-text">
+					<span class="text-gray">{{money.incomings.total | currency: "R$"}} - </span>
+					<span class="text-red">{{money.expenses.total | currency: "R$"}}</span>
+					<span> = {{money.total | currency: "R$"}}</span>
+					<span class="label label-success">{{money.saved | currency: "%"}}</span>
+				</p>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<form ng-submit="new()">
+			<h4>
+				Cadastrar Novo
+				<div class="btn-group" role="group">
+					<button type="button"></button>
+				</div>
+			</h4>
+		</form>
+
+	</div>
+
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/services/MoneyService.js"></script>
 	<script type="text/javascript" src="js/controllers/MoneyController.js"></script>
