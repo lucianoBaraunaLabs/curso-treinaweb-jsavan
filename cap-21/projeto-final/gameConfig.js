@@ -19,6 +19,7 @@ Sandbox('gameConfig', [], function(){
             fontAndSize: '12px Georgia',
             x: 10,
             y: 40
-        }
+        },
+        fruitSpeed: 15,
     }
 })

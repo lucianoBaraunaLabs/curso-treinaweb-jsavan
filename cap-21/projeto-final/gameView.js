@@ -1,4 +1,4 @@
-Sandbox('gameView', ['gameConfig', 'ObjectMaker'], function(gameConfig, ObjectMaker){
+Sandbox('gameView', ['gameConfig'], function(gameConfig, ObjectMaker){
     var canvas = gameConfig.canvas.element;
     
     var context = canvas.getContext('2d');
