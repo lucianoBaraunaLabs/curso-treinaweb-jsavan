@@ -67,5 +67,11 @@ Sandbox('gameController', ['gameView', 'gameConfig', 'Player', 'ObjectMaker'], f
         player = new Player('Player1');
         gameLoop = setInterval(running,100);
     }
+
+    var moveBox = function(direction){
+        if(direction === 'right'){
+            
+        }
+    }
     
 });
