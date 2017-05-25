@@ -21,5 +21,10 @@ Sandbox('gameConfig', [], function(){
             y: 40
         },
         fruitSpeed: 15,
+        boxSpeed: 5,
+        keyCode: {
+            LEFT:'37',
+            RIGHT:'39'
+        }
     }
 })

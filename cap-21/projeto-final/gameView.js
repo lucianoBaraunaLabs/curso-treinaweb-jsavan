@@ -31,14 +31,7 @@ Sandbox('gameView', ['gameConfig'], function(gameConfig, ObjectMaker){
         context.font = gameConfig.life.fontAndSize;
         context.fillStyle = gameConfig.color.life;
         context.fillText('Vidas: '+life, gameConfig.life.x, gameConfig.life.y);
-    }
-
-    var obj = ObjectMaker.factory('Orange');
-
-    obj.x = 100;
-    obj.y = 100;
-
-    drawObject(obj);
+    }   
 
     return {
         paintGameBoard: paintGameBoard,
