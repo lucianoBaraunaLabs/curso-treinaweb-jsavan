@@ -1,6 +1,6 @@
 Sandbox('gameView', ['gameConfig'], function(gameConfig, ObjectMaker){
     var canvas = gameConfig.canvas.element;
-    
+
     var context = canvas.getContext('2d');
 
     var paintGameBoard = function(){
@@ -26,12 +26,12 @@ Sandbox('gameView', ['gameConfig'], function(gameConfig, ObjectMaker){
         context.fillStyle = gameConfig.color.score;
         context.fillText('Pontos: '+score, gameConfig.score.x, gameConfig.score.y);
     }
-    
+
     var drawLife = function(life){
         context.font = gameConfig.life.fontAndSize;
         context.fillStyle = gameConfig.color.life;
         context.fillText('Vidas: '+life, gameConfig.life.x, gameConfig.life.y);
-    }   
+    }
 
     return {
         paintGameBoard: paintGameBoard,
